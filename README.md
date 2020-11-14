@@ -11,8 +11,8 @@ cd game/
 ```
 then clone repo:
 ```
-git clone https://github.com/XGZzs0ocFyf1/GameOfLive.git```
-
+git clone https://github.com/XGZzs0ocFyf1/GameOfLive.git
+```
 
 comile source ``` javac game/gamefield/GameField.java```
 
