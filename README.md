@@ -5,11 +5,13 @@ About game of life you can read here https://en.wikipedia.org/wiki/Conway%27s_Ga
 My project is simple implementation of it with minimal pattern realisation (only glider) and 
 output in console. 
 
-
+create folder and move into it:
 ```mkdir game
 cd game/
 ```
-git clone... 
+then clone repo:
+```
+git clone https://github.com/XGZzs0ocFyf1/GameOfLive.git```
 
 
 comile source ``` javac game/gamefield/GameField.java```
