@@ -1,4 +1,4 @@
-package gamefield;
+package game.gamefield;
 
 public class GameField {
 

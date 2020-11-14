@@ -1,4 +1,4 @@
-package gamefield;
+package game.gamefield;
 
 
 /**
@@ -11,7 +11,7 @@ package gamefield;
  * in 49 line of drawing table
  *
  * insert this char (if you want another)
- * to gamefield.GameField::drawBoard
+ * to game.gamefield.GameField::drawBoard
  */
 public class CharsCheck {
 
