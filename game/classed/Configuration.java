@@ -12,11 +12,14 @@ import java.util.Properties;
  *
  */
 public class Configuration {
-    private  final String FILENAME = "src/resources/game.properties";
-    private  int width = 0;
-    private  int height = 0;
-    private  int cellSize = 0;
+    private  final String FILENAME = "config/game.properties";
+    private  int width = 600;
+    private  int height = 600;
+    private  int cellSize = 7;
     private int numberOfSteps = 0;
+    private String gameType = "";
+    private boolean hasGrid = false;
+    private int refreshDelay = 100; //delay between screen repaint
 
 
     //Upload configuration from FILENAME file
@@ -28,8 +31,9 @@ public class Configuration {
             height = Integer.parseInt(properties.getProperty("game.field.height"));
             width = Integer.parseInt(properties.getProperty("game.field.width"));
             cellSize = Integer.parseInt(properties.getProperty("game.field.cell.size"));
-
-
+            gameType = properties.getProperty("game.type");
+            hasGrid = Boolean.parseBoolean(properties.getProperty("game.field.hasgrid"));
+            refreshDelay = Integer.parseInt(properties.getProperty("game.field.refresh.delay"));
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -62,5 +66,17 @@ public class Configuration {
     //number of vertical(y axis) cells
     public int getNumberOfYYYCells() {
         return cellSize == 0 ? 0 :  height / cellSize;
+    }
+
+    public String getGameType() {
+        return gameType;
+    }
+
+    public boolean isHasGrid() {
+        return hasGrid;
+    }
+
+    public int getRefreshDelay() {
+        return refreshDelay;
     }
 }

@@ -2,20 +2,29 @@
 A training project to consolidate base skill of programming in java.
 
 About game of life you can read here https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life;
-My project is simple implementation of it with minimal pattern realisation (only glider) and 
-output in console. 
+My project is simple implementation of it.
+To start first download or clone repo.
 
-create folder and move into it:
-```mkdir game
-cd game/
++  go to its folder: ```cd GameOfLive```
+
++  execute: ``` javac -d bin game/classed/GameFrame.java```
++  ```cd bin```
+
++ In bin create folder "config"
+``` cd config```
+
++ create file game.properties via text editor, and put inside next configuration:
 ```
-then clone repo:
+game.field.width=900
+game.field.height=600
+game.field.cell.size=2
+game.field.refresh.delay=10
+game.field.hasgrid=false
+game.type=spawn
+
 ```
-git clone https://github.com/XGZzs0ocFyf1/GameOfLive.git
-```
+ 
++ and execute ```java game.classed.GameFrame ```
 
-comile source ``` javac game/gamefield/GameField.java```
-
-run source ```start java game/gamefield/GameField```
-
-After last check I strongly do not advice you user unicode characters in console output. Try asterisk or and common char.
+type spawn - random generation of cells
+type glider = create only one glider pattern

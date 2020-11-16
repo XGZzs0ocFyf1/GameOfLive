@@ -16,16 +16,19 @@ public class GamePanel extends JPanel implements ActionListener {
     private byte[][] cellBoard;
     private boolean hasGrid = false;
     private boolean isGameEnds = false;
-    private int repaintSpeed = 1; // time to refresh frame in ms
+    private int repaintSpeed = 50; // time to refresh frame in ms
     private Engine engine;
+    private Configuration configuration;
 
 
     public GamePanel(Configuration config) {
+        this.configuration = config;
         width = config.getWidth();
         height = config.getHeight();
         cellSize = config.getCellSize();
         numberOfXXXCells = config.getNumberOfXXXCells();
         numberOfYYYCells = config.getNumberOfYYYCells();
+        repaintSpeed = config.getRefreshDelay();
         cellBoard = new byte[numberOfXXXCells][numberOfYYYCells];
         engine = new Engine(numberOfXXXCells, numberOfYYYCells);
         setSize(width, height);
@@ -46,16 +49,14 @@ public class GamePanel extends JPanel implements ActionListener {
     }
 
 
-
     //here we draw all our stuff
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
         //grid
-        if (hasGrid == false) {
-            if (cellSize >= 5) {
-              //  drawGrid(g);  //disablse greed for saving CPU time
-                hasGrid = true;
+        if (configuration.isHasGrid() == true) {
+            if (cellSize >= 5) { //disablse greed for saving CPU time
+                drawGrid(g);
             }
         }
 
@@ -98,15 +99,17 @@ public class GamePanel extends JPanel implements ActionListener {
 
         //generate world map in the next time moment
         cellBoard = engine.makeOneStep(cellBoard);
-        engine.isGameStopped();
+
         //refresh JPanel
         repaint();
 
     }
 
     private void setStartPos() {
-        // spawn(); //generate random
-        setGlider();// generate one glider
+        if (configuration.getGameType().equals("spawn"))
+            spawn(); //generate random
+        else
+            setGlider();// generate one glider
     }
 
     private void setGlider() {
