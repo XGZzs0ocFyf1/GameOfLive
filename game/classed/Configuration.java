@@ -17,7 +17,7 @@ public class Configuration {
     private  int height = 600;
     private  int cellSize = 7;
     private int numberOfSteps = 0;
-    private String gameType = "";
+    private String gameType = "spawn";
     private boolean hasGrid = false;
     private int refreshDelay = 100; //delay between screen repaint
 

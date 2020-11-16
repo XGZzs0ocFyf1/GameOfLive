@@ -37,14 +37,8 @@ public class GamePanel extends JPanel implements ActionListener {
 
         //set the start position
         setStartPos();
+        //shedulled execution every repaintSpeed ms
         new Timer(repaintSpeed, this).start();
-
-
-    }
-
-    //debug stuff
-    private void informer() {
-        System.out.format(this.getClass().getSimpleName() + ":info: получено на отрисовку поле: (ширина  х высота \n) %s х %s", width, height);
 
     }
 
@@ -59,7 +53,6 @@ public class GamePanel extends JPanel implements ActionListener {
                 drawGrid(g);
             }
         }
-
         //cells
         drawBoard(g);
     }
